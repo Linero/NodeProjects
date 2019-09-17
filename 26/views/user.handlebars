@@ -1,0 +1,7 @@
+<div class="page-header">
+{{#if user}}
+    <h2>{{ title }} {{user.name}} {{user.lastName}} o id: [{{user._id}}]</h2>
+    {{else}}
+    <h2>User not found</h2>
+{{/if}}
+</div>

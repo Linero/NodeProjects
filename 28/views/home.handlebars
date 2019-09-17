@@ -1,0 +1,36 @@
+<h2>{{ title }}</h2>
+
+<form id="form" class="navbar-form navbar-left">
+    <div class="form-group">
+        <input type="text" class="form-control" placeholder="Wiadomość...">
+    </div>
+    <button type="submit" class="btn btn-default">Wyślij</button>
+</form>
+
+<script>
+(function() {
+
+const socket = new WebSocket("ws://localhost:3000");
+
+    const form = document.querySelector("#form"),
+        message = form.querySelector("input[type='text']");
+
+    form.onsubmit = function(e) {
+
+        e.preventDefault();
+
+        if(message.value) {
+
+            socket.send(message.value);
+            message.value = "";
+
+        }
+
+    }
+
+    socket.addEventListener("message",(data)=>{
+        console.log(data.data)
+    })
+
+})();
+</script>

@@ -1,0 +1,13 @@
+div {
+    font-size: 48px;
+    background-color: #555555;
+}
+
+li:hover {
+    font-size: 120px;
+    transition: 1s;
+}
+
+li {
+    transition: 1s;
+}
